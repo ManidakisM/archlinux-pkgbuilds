@@ -1,0 +1,29 @@
+# Maintainer: Manidakis Marinos
+pkgname='xmonad'
+pkgver=1.0
+pkgrel=1
+arch=('any')
+licence=('custom:ISC')
+source=("git+https://manidakis@bitbucket.org/manidakis/xmonad.git")
+sha256sums=('SKIP')
+
+prepare() {
+	echo "Preparing..."
+	sudo pacman -S xmonad xmobar
+}
+
+build() {
+	echo "Building..."
+	cd $pkgname
+	cp xmobar.hs ~/.xmonad/xmobar.hs
+	cp xmonad.hs ~/.xmonad/xmonad.hs
+	cp xmonad-volume.sh ~/.xmonad/xmonad-volume.sh
+}
+
+package() {
+	echo "Packaging..." 
+	cd $pkgname
+	cp xmobar.hs ~/.xmonad/xmobar.hs
+	cp xmonad.hs ~/.xmonad/xmonad.hs
+	cp xmonad-volume.sh ~/.xmonad/xmonad-volume.sh
+}

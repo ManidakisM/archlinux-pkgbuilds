@@ -1,0 +1,18 @@
+# Maintainer: Manidakis Marinos
+pkgname=surf
+pkgver=2.0
+pkgrel=1
+arch=('any')
+licence=('custom:ISC')
+source=("git+https://manidakis@bitbucket.org/manidakis/surf.git")
+sha256sums=('SKIP')
+
+build() {
+	cd $pkgname
+	make
+}
+
+package() {
+	cd $pkgname
+	make DESTDIR="$pkgdir" install
+}
